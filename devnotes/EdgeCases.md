@@ -95,6 +95,110 @@ Fig. 326, the petal: a loop around one far dot, crossing itself at the neck. **A
 ### Straight bars inside frames
 ![frames with bars](images/examples/frames_with_bars.png)
 
+## Lines on dots, auxiliary lines, junctions
+
+Found by the edge-case miner (November 2026) and checked against the images and Gerdes' own text.
+
+### Gerdes' auxiliary lines are drawn, not hidden
+![Fig. 198](images/sources/gerdes_fig198_auxiliary_lines_merge.png)
+![Fig. 122](images/sources/gerdes_fig122_auxiliary_lines_drawn_first.png)
+
+*Gerdes, Geometria Sona de Angola. Fig. 198 after Fontinha p. 143; Fig. 122 after Fontinha p. 279.*
+
+- Gerdes calls them *linhas* / *segmentos auxiliares* and leaves them out of the line count: "monolinear, not counting the auxiliary lines". But they **stay in the finished drawing**.
+- Fig. 198: (a) four separate mat patterns, (b) dots plus orange lines joining "the points to be merged", (c) the line wraps around the orange lines, (d) the final drawing, orange lines still there. Gerdes: the auxiliary lines "make the drawing much easier to execute".
+- Fig. 122: vertical lines "drawn in advance" (*traçadas de antemão*), and the line weaves around them.
+- The word covers two things: **walls** the line wraps around (Figs. 122, 198, 260, the bars in 93), and **figurative extras** (Fig. 254: "arms, legs, eyes, mouth"; Fig. 65: porcupine spines "added at the end").
+- A wall between two dots that the line can't cross is exactly a **mirror** in the Gerdes/Jablan mirror-curve model (the same idea as `prior_work/portfolio_scheme/structure_lusona_graph.png`).
+
+**Current answer:** an auxiliary line is an ordinary path with role `auxiliary`: visible, not counted in linearity, usually first in the drawing order. Main-line vertices next to it can be bound as "goes around this path", the same way they're bound to a dot's cells. Not a hidden construction layer.
+
+### Lines through dots and ending on dots
+![Fig. 173](images/sources/gerdes_fig173_nzambi.png)
+![Fig. 174a](images/sources/gerdes_fig174a_ku_tanga.png)
+![Fig. 91a](images/sources/gerdes_fig91a_tree_through_dots.png)
+![Kubik p. 239](images/sources/kubik_p239_mubitana_star_and_chingelengele.png)
+
+*Fig. 173: nzambi / kalunga, God (Fontinha p. 177; Hamelberger p. 329). Fig. 174a: probably Pearson's ku-tanga, creation (p. 25); the miner mislabelled it as Fig. 173. Fig. 91a: Dos Santos p. 103. Kubik, Tusona p. 239, after Mubitana 1970.*
+
+Two different things look alike here:
+- **Walls through a dot column.** In Figs. 173/174a, the line in the central column runs through every dot, and the woven line **never crosses it**: it turns back on both sides, its corners touching it at the top. It's an auxiliary wall (above), not a stroke woven through dots.
+- **Strokes that really sit on dots.** Fig. 91a: a stroke starts at a ringed dot, runs through two dots and branches into a tree. Kubik/Mubitana Fig. 8(b): a plus sign with big dots at the centre and arm ends; the dots are characters (duiker, dog, man).
+
+**Current answer:** already in Design v2: a vertex can be bound to a dot's centre. Doesn't break the model.
+
+### T-junctions and branching
+![Fig. 138](images/sources/gerdes_fig138_t_junctions.png)
+![Fig. 174b](images/sources/gerdes_fig174b_lihangununo.png)
+
+*Fig. 138 and Fig. 174b (Pearson's lihangununo, p. 26).*
+
+- Fig. 138: the bars run from the circle and end exactly on the loops: no crossing, no corner.
+- Fig. 174b: auxiliary I-beams, made of T-junctions.
+- Fig. 91a (above): a stroke that forks into a Y with twigs.
+
+**Current answer:** v2's "vertex bound to a point on another path". A tree is several open paths starting from the same junction vertex. No new primitive.
+
+### Standalone glyphs
+Fig. 173 (above): four small pictographs (a figure, a circle with a cross, a crescent, a creature) in the empty bays, part of the recorded drawing, not of the woven line. Kubik p. 239 (above): Mubitana's *chingelengele* glyphs (no dots, arrowhead and hook ends). Kubik notes they use different graphemes from the tusona tradition.
+
+**Current answer:** small paths on the symbols layer, each with an optional label/meaning so the story can point at them.
+
+## Presentation
+
+### Over/under at crossings
+![Fig. 56](images/sources/gerdes_fig56_last_stroke_wins.png)
+![Tortoise photo](images/sources/gerdes_dfa_tortoise_photo.png)
+![Fig. 317](images/sources/gerdes_fig317_engraved_interlace.png)
+
+*Fig. 56: Torday & Joyce p. 198 (Bushongo). Tortoise: Gerdes, Drawings from Angola p. 16. Fig. 317b: Redinha's rock engraving at Capelo, Alto-Zambeze.*
+
+- **In sand, the last stroke wins.** Gerdes on Fig. 56: drawn fast in fine sand, "only the segments traced last at each place stay visible". The tortoise photo: "it is easy to discern which of the three independent closed lines was traced first."
+- **Engraved interlace:** Fig. 317b is the same motif as 317a, cut into rock as a ribbon with over/under breaks, and no dots.
+
+**Current answer:** in sand, "on top" falls out of the drawing order (later on top), so it isn't stored. An optional per-crossing override in presentation, for interlace styles like 317b.
+
+### A locally denser dot column
+![Figs. 125–126](images/sources/gerdes_fig125_126_lihina_dense_column.png)
+
+*Fig. 126: lihina, a blanket of bark (Pearson p. 137). Fig. 125: its construction.*
+
+Gerdes: "additional points in the last column". The right column has dots at half spacing, and the line wiggles tightly between them.
+
+**Current answer:** free dot positions already hold it. **Spec detail:** a cell's position can't be one global offset from its dot, or neighbouring cells collide in the dense column. Cell geometry follows local spacing (or is stored per dot).
+
+### Decorations: line ends and segments
+![Fig. 165](images/sources/gerdes_fig165_arrow_ends.png)
+![Fig. 39](images/sources/gerdes_fig39_end_caps.png)
+![Desenhos p. 7](images/sources/gerdes_desenhos_p7_knobbed_tree_photo.png)
+![hambelo](images/sources/kubik_hambelo_pen_of_goats.png)
+
+*Fig. 165: Fontinha p. 157. Fig. 39: Fontinha / Pearson. Sand photo: Gerdes, Desenhos da África p. 7. Kubik, Tusona p. 38: limba lyavamphembe, the pen of goats.*
+
+- End caps: arrow fletching (Fig. 165), forks, a diamond tip, a triangle foot (Fig. 39), knobs on branch ends (the sand photo).
+- *Hambelo*: a normal closed pattern with a decoration. The zigzag is the log barring the pen's entrance (the story ends on it: *kelekeche!*). It sits where one connection of the route would be: the route stays the same, and that connection is drawn as a zigzag. Same family as tails and fangs.
+
+**Current answer:** end caps on open paths from a small list (arrow, fork, knob, diamond, triangle, hook), plus a **segment style** (e.g. `zigzag`) for decorations that replace a connection. Anything not on the list can be drawn as small paths. Forked feet are a cap, not branching.
+
+## Variants and provenance
+
+### Recorded vs reconstructed, one drawing with several meanings
+![Figs. 93–94](images/sources/gerdes_fig93_94_recorded_vs_reconstructed.png)
+![Figs. 260–261](images/sources/gerdes_fig260_261_elephant_head.png)
+
+*Fig. 93: Fontinha p. 251; Fig. 94: Gerdes' reconstruction. Fig. 260: mutwe wa djamba, the head of an elephant (Fontinha p. 167); Fig. 261: Gerdes' alternative.*
+
+- Fig. 93/94: "I have the impression it isn't the original version… I built Fig. 94, which seems to me the original version."
+- Fig. 260/261: 5-linear as recorded; Gerdes' 6×5 alternative is monolinear. "Perhaps one of these alternatives was the original lusona."
+- Fig. 318: the same drawing recorded by Hamelberger, Dos Santos and Fontinha with **three different meanings** (a heap of grass for thatching, a tick-bird's nest, a rodent's bed).
+
+**Current answer:** file metadata, not drawing content: a list of sources, each with its own name and meaning, plus relations (`reconstructed_from`, `variant_of`).
+
+### To check: a gap in the palisaded village
+![Recreações](images/sources/gerdes_recreacoes_palisade_gap.png)
+
+*Gerdes, Lusona: Recreações Geométricas, "traditional sona" page (povoação defendida por paliçadas, probably).* The right bar sits in a real gap in the line. Gate, or rendering slip? Unconfirmed.
+
 ## Out of scope
 
 Textures drawn with several fingers at once.
@@ -104,8 +208,8 @@ Textures drawn with several fingers at once.
 
 ## To find
 
-- [ ] A line that **passes through a dot** instead of around it (if that exists).
+- [x] A line that **passes through a dot** instead of around it: yes, see "Lines through dots".
 - [ ] Two lines that **touch without crossing** (tangent).
 - [ ] A drawing where the **order of drawing changes the meaning** or the story (Kubik).
-- [ ] Dots that belong to **no line** (characters, like the hunter and dog).
+- [x] Dots that belong to **no line** (characters): the hunter and dog, Mubitana's duiker, dog and man (Kubik p. 239).
 - [ ] Very **irregular dot layouts** (not a grid at all).

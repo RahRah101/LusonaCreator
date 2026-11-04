@@ -1,6 +1,6 @@
 # Copyrighted content... I'm not fussy about these things but 
 # that wouldn't be proper in main repo, this isn't annas-archive
-sources/
+/sources/
 
 # Large media
 assets/references/sambalu_video/
