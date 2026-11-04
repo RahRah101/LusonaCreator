@@ -1,8 +1,8 @@
 # Edge cases
 
-Patterns that break naive models. The format has to hold every one of these before it's called done. One entry per pattern: the image, what it breaks, and the current answer (or "open").
+Patterns that break naive models. The format has to hold every one of these before it's called done.
 
-Add to this as you find more. A good edge case is one where you can say *exactly* which part of the model it stresses.
+A good edge case is one where you can say *exactly* which part of the model it stresses.
 
 ## Multilinearity
 
@@ -13,7 +13,6 @@ Add to this as you find more. A good edge case is one where you can say *exactly
 
 - **Same dot layout, two completely different decompositions into lines.** The dots don't determine the lines, so the route has to be stored and can't be derived with a pattern/algorithm all the time.
 - **Lines of very different lengths share the grid**
-- **324 mixes straight diagonals with curved caps in one line**: shape changes per segment, inside a single line.
 - **Tiny curls between two dots** (324, top/bottom and side tips): the line makes a small self-loop that goes around *no* dot.
 - **S-shaped snakes with free ends** (325): lines that wind between rows instead of crossing diagonally, and stop with a curl. The waypoints are dots, but the shape between them is a deliberate wave, and the line is open.
 - **A marked dot** (324, centre: a dot with a ring): the dot itself is drawn differently. That's a symbol or style on a dot, not a line.
@@ -111,7 +110,8 @@ Found by the edge-case miner (November 2026) and checked against the images and 
 - The word covers two things: **walls** the line wraps around (Figs. 122, 198, 260, the bars in 93), and **figurative extras** (Fig. 254: "arms, legs, eyes, mouth"; Fig. 65: porcupine spines "added at the end").
 - A wall between two dots that the line can't cross is exactly a **mirror** in the Gerdes/Jablan mirror-curve model (the same idea as `prior_work/portfolio_scheme/structure_lusona_graph.png`).
 
-**Current answer:** an auxiliary line is an ordinary path with role `auxiliary`: visible, not counted in linearity, usually first in the drawing order. Main-line vertices next to it can be bound as "goes around this path", the same way they're bound to a dot's cells. Not a hidden construction layer.
+**Current answer:** an auxiliary line can be treated as a group of either visible or invisible lines, a construction layer both for the software and potentially the user. With some drawings that did not originally feature auxiliary lines, they may help the software/model represent things.
+
 
 ### Lines through dots and ending on dots
 ![Fig. 173](images/sources/gerdes_fig173_nzambi.png)
@@ -192,7 +192,7 @@ Gerdes: "additional points in the last column". The right column has dots at hal
 - Fig. 260/261: 5-linear as recorded; Gerdes' 6×5 alternative is monolinear. "Perhaps one of these alternatives was the original lusona."
 - Fig. 318: the same drawing recorded by Hamelberger, Dos Santos and Fontinha with **three different meanings** (a heap of grass for thatching, a tick-bird's nest, a rodent's bed).
 
-**Current answer:** file metadata, not drawing content: a list of sources, each with its own name and meaning, plus relations (`reconstructed_from`, `variant_of`).
+**Current answer:** file metadata with a list of sources, each with its own name and meaning, plus relations (`reconstructed_from`, `variant_of`).
 
 ### To check: a gap in the palisaded village
 ![Recreações](images/sources/gerdes_recreacoes_palisade_gap.png)
