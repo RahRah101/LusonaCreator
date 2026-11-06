@@ -1,0 +1,3 @@
+[submodule "src/sona_core"]
+	path = src/sona_core
+	url = git@github.com:RahRah101/sona_core.git
