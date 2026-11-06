@@ -1,7 +1,6 @@
 # Sources to get
 
-The primary collections of sona: the people who actually recorded them in the field. Everything Gerdes draws comes from these (his captions say "[Fontinha, p. 134]" etc.). Pulled from the bibliography of *Geometria Sona de Angola* (in `sources/books/`), so the references are real; availability still needs checking.
-
+The primary collections of sona: the people who actually recorded them in the field. Everything Gerdes draws comes from these (his captions say "[Fontinha, p. 134]" etc.). 
 
 ## Primary collections (most new drawings)
 

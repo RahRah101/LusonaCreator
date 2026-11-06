@@ -75,13 +75,13 @@ Fig. 325: the green and black lines wave between the dots, and **they end**: fre
 
 ## Self-loops
 
-Rule: **a loop with no dot inside is a shape; a loop with a dot inside is route.**
+There's more than one way to build a self-loop (see [Specs.md](Specs.md), principle 5: one drawing, many constructions).
 
-Fig. 324, the tip: a small loop around nothing (same crop as the cap above). **Answer:** a normal connection between two neighbouring cells, with the `curl` shape (size, side). The loop's self-crossing is not a route crossing.
+Fig. 324, the tip: a small loop around nothing (same crop as the cap above). **Answers:** a normal connection between two neighbouring cells, with the loop written as free vertices (`made_with: curl`); or a hidden dot inside the loop, with the line going around its cells.
 
 ![Fig. 324 detail](images/sources/detail_fig324_curl_and_cap.png)
 
-Fig. 326, the petal: a loop around one far dot, crossing itself at the neck. **Answer:** route. It visits the far dot's cells, and the neck crossing is a real crossing.
+Fig. 326, the petal: a loop around one far dot, crossing itself at the neck. **Answers:** it visits the far dot's cells; or it's free vertices shaped around the dot.
 
 ![Fig. 326 detail](images/sources/detail_fig326_petal.png)
 
