@@ -21,3 +21,6 @@ __pycache__/
 *.pyc
 \#*\#
 .#*
+
+# Local diagram generator (only the SVGs it makes are committed)
+devnotes/images/make_diagrams.py
